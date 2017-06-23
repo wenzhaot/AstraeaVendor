@@ -1,0 +1,6 @@
+framework module videoprp {
+  umbrella header "AgoraYuvEnhancerObjc.h"
+
+  export *
+  module * { export * }
+}
