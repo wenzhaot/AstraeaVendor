@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -11,20 +11,42 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/wenzhaot/AstraeaVendor.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '8.0'
 
-  s.subspec 'Rong' do |ss|
+  s.subspec 'RongIM' do |ss|
     ss.ios.vendored_frameworks = [
       'IMKit/RongIMKit.framework',
       'IMLib/RongIMLib.framework'
     ]
-    ss.vendored_libraries = [
+    ss.ios.vendored_libraries = [
       'IMLib/libopencore-amrnb.a'
     ]
     ss.resources = ['IMKit/*.{plist,bundle,lproj}', 'IMLib/*.{plist}']
     ss.libraries = 'sqlite3.0', 'c++', 'z', 'c++abi', 'stdc++', 'xml2'
+
+    ss.pod_target_xcconfig = {
+      'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMKit $(PODS_ROOT)/AstraeaVendor/IMLib',
+      'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMLib'
+    }
   end
 
-  s.pod_target_xcconfig = {
-    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/RongIMKit'
-  }
+
+
+  # s.subspec 'Agora' do |ss|
+  #   ss.ios.vendored_frameworks = [
+  #     'Agora/*.framework'
+  #   ]
+  #   ss.ios.vendored_libraries = [
+  #     'Agora/libagora_fat.a'
+  #   ]
+  #   ss.source_files = 'Agora/*.h'
+  #   # ss.public_header_files = 'Agora/*.h'
+  #   ss.libraries = 'sqlite3.0', 'c++', 'z', 'c++abi', 'stdc++', 'xml2', 'resolv.9'
+  #   ss.frameworks = 'Foundation', 'UIKit', 'VideoToolbox', 'AudioToolbox', 'CoreMotion'
+  # end
+
+  # s.xcconfig = {
+  #   'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMKit $(PODS_ROOT)/AstraeaVendor/IMLib $(PODS_ROOT)/AstraeaVendor/Agora',
+  #   'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
+  #   'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMLib $(PODS_ROOT)/AstraeaVendor/Agora'
+  # }
 
 end
