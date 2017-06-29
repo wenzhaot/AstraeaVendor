@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'Rong' do |ss|
     ss.ios.vendored_frameworks = [
-      'AstraeaSwift/Classes/Vendor/IMKit/RongIMKit.framework',
-      'AstraeaSwift/Classes/Vendor/IMLib/RongIMLib.framework'
+      'IMKit/RongIMKit.framework',
+      'IMLib/RongIMLib.framework'
     ]
     ss.vendored_libraries = [
-      'AstraeaSwift/Classes/Vendor/IMLib/libopencore-amrnb.a'
+      'IMLib/libopencore-amrnb.a'
     ]
-    ss.resources = ['AstraeaSwift/Classes/Vendor/IMKit/*.{plist,bundle,lproj}', 'AstraeaSwift/Classes/Vendor/IMLib/*.{plist}']
+    ss.resources = ['IMKit/*.{plist,bundle,lproj}', 'IMLib/*.{plist}']
     ss.libraries = 'sqlite3.0', 'c++', 'z', 'c++abi', 'stdc++', 'xml2'
   end
 
