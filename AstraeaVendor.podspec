@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -28,7 +28,16 @@ Pod::Spec.new do |s|
     }
   end
 
-
+  s.subspec 'UMeng' do |ss|
+    ss.vendored_frameworks = [
+      'UMeng/UMMobClick.framework'
+    ]
+    ss.libraries = 'sqlite3.0', 'z'
+    ss.frameworks = 'CoreTelephony'
+    ss.xcconfig = {
+      'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/UMeng'
+    }
+  end
 
   s.subspec 'Agora' do |ss|
     ss.vendored_frameworks = [

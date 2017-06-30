@@ -1,0 +1,6 @@
+framework module MobClick {
+  umbrella header "MobClick.h"
+
+  export *
+  module * { export * }
+}
