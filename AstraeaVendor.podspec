@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -30,23 +30,25 @@ Pod::Spec.new do |s|
 
 
 
-  # s.subspec 'Agora' do |ss|
-  #   ss.ios.vendored_frameworks = [
-  #     'Agora/*.framework'
-  #   ]
-  #   ss.ios.vendored_libraries = [
-  #     'Agora/libagora_fat.a'
-  #   ]
-  #   ss.source_files = 'Agora/*.h'
-  #   # ss.public_header_files = 'Agora/*.h'
-  #   ss.libraries = 'sqlite3.0', 'c++', 'z', 'c++abi', 'stdc++', 'xml2', 'resolv.9'
-  #   ss.frameworks = 'Foundation', 'UIKit', 'VideoToolbox', 'AudioToolbox', 'CoreMotion'
-  # end
-
-  # s.xcconfig = {
-  #   'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMKit $(PODS_ROOT)/AstraeaVendor/IMLib $(PODS_ROOT)/AstraeaVendor/Agora',
-  #   'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
-  #   'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/IMLib $(PODS_ROOT)/AstraeaVendor/Agora'
-  # }
+  s.subspec 'Agora' do |ss|
+    ss.vendored_frameworks = [
+      'Agora/AgoraRtcEngineKit.framework',
+      'Agora/videoprp.framework'
+    ]
+    ss.ios.vendored_libraries = [
+      'Agora/libagora_fat.a'
+    ]
+    ss.source_files = 'Agora/*.h'
+    ss.xcconfig = {
+      'OTHER_LDFLAGS' => '-ObjC'
+    }
+    ss.pod_target_xcconfig = {
+      'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
+      'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
+      'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora'
+    }
+    ss.libraries = 'c++', 'resolv'
+    ss.frameworks = 'SystemConfiguration', 'CoreTelephony', 'CoreMedia', 'AudioToolbox', 'AVFoundation', 'VideoToolbox'
+  end
 
 end
