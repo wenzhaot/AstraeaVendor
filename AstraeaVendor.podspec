@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
     ss.libraries = 'sqlite3.0', 'z'
     ss.frameworks = 'CoreTelephony'
     ss.xcconfig = {
+      'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
       'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/UMeng'
     }
   end
