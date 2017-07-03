@@ -28,17 +28,17 @@ Pod::Spec.new do |s|
     }
   end
 
-  s.subspec 'UMeng' do |ss|
-    ss.vendored_frameworks = [
-      'UMeng/UMMobClick.framework'
-    ]
-    ss.libraries = 'sqlite3.0', 'z'
-    ss.frameworks = 'CoreTelephony'
-    ss.xcconfig = {
-      'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
-      'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/UMeng'
-    }
-  end
+  # s.subspec 'UMeng' do |ss|
+  #   ss.vendored_frameworks = [
+  #     'UMeng/UMMobClick.framework'
+  #   ]
+  #   ss.libraries = 'sqlite3.0', 'z'
+  #   ss.frameworks = 'CoreTelephony'
+  #   ss.xcconfig = {
+  #     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
+  #     'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/UMeng'
+  #   }
+  # end
 
   s.subspec 'Agora' do |ss|
     ss.vendored_frameworks = [
