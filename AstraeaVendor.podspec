@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -45,16 +45,16 @@ Pod::Spec.new do |s|
       'Agora/AgoraRtcEngineKit.framework',
       'Agora/videoprp.framework'
     ]
-    ss.ios.vendored_libraries = [
-      'Agora/libagora_fat.a'
-    ]
-    ss.source_files = 'Agora/*.h'
+    # ss.ios.vendored_libraries = [
+    #   'Agora/libagora_fat.a'
+    # ]
+    # ss.source_files = 'Agora/*.h'
     ss.xcconfig = {
       'OTHER_LDFLAGS' => '-ObjC'
     }
     ss.pod_target_xcconfig = {
       'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
-      'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
+      # 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora',
       'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AstraeaVendor/Agora'
     }
     ss.libraries = 'c++', 'resolv'
