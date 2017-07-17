@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AstraeaVendor"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "Astraea vendor for astraea sdk"
   s.description  = <<-DESC
   Astraea vendor for astraea swift sdk
@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
   s.author             = { "wenzhaot" => "tanwenzhao1025@gmail.com" }
   s.source       = { :git => "https://github.com/wenzhaot/AstraeaVendor.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '8.0'
+
+  s.preserve_paths = 'CCommonCrypto/**/*'
 
   s.subspec 'RongIM' do |ss|
     ss.ios.vendored_frameworks = [
